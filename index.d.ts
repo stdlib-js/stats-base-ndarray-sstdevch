@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,17 +16,28 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { float32ndarray, typedndarray } from '@stdlib/types/ndarray';
 
 /**
-* Compute the standard deviation of a one-dimensional single-precision floating-point ndarray using a one-pass trial mean algorithm.
+* Computes the standard deviation of a one-dimensional single-precision floating-point ndarray using a one-pass trial mean algorithm.
 *
-* @module @stdlib/stats-base-ndarray-sstdevch
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray.
+*     -   a zero-dimensional ndarray specifying the degrees of freedom adjustment.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns standard deviation
 *
 * @example
 * var Float32Vector = require( '@stdlib/ndarray-vector-float32' );
 * var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
-* var sstdevch = require( '@stdlib/stats-base-ndarray-sstdevch' );
 *
 * var x = new Float32Vector( [ 1.0, -2.0, 2.0 ] );
 * var correction = scalar2ndarray( 1.0, {
@@ -36,12 +47,9 @@
 * var v = sstdevch( [ x, correction ] );
 * // returns ~2.0817
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function sstdevch( arrays: [ float32ndarray, typedndarray<number> ] ): number;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = sstdevch;
